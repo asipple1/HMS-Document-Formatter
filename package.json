@@ -1,0 +1,23 @@
+{
+  "name": "hms-doc-formatter",
+  "version": "1.0.0",
+  "description": "Honolulu Med Spa document formatter tool",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asipple1/HMS-Document-Formatter.git"
+  },
+  "keywords": [
+    "node.js",
+    "electron"
+  ],
+  "author": "Andy Sipple",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asipple1/HMS-Document-Formatter/issues"
+  },
+  "homepage": "https://github.com/asipple1/HMS-Document-Formatter#readme"
+}
