@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+  <title>HMS document formatter</title>
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container center-align">
+    <h3><i class="fas fa-file-alt"></i> HMS Document Formatter</h3>
+    <p>Choose a file or files to rename</p>
+    <form action="" id="image-form">
+      <div class="row">
+        <div class="file-field input-field col s12">
+          <div class="btn">
+            <span>File</span>
+            <input type="file" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate" required>
+          <label for="last_name">Last Name</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate" required>
+          <label for="first_name">First Name</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="dob" type="text" class="validate datepicker">
+          <label class="active" for="dob" class="active">Date of Birth</label>
+        </div>
+
+        <div class="input-field col s6">
+          <select required>
+            <option value="" disabled selected>Choose your Treatment</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+
+
+        <div class="input-field col s6">
+          <select required>
+            <option value="" disabled selected>Body Area</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="date" type="text" class="validate datepicker" required value="03-07-1987">
+          <label class="active" for="date" class="active">Treatment Date</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="provider_initals" type="text">
+          <label for="provider_initals">Provider Initals</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input type="submit" value="Rename" class="btn black">
+        </div>
+        </div>
+    </form>
+
+    <!-- <div class="card output">
+      <div class="card-content">
+        Output Path: <span id="output-path"></span>
+      </div>
+    </div> -->
+  </div>
+  <script src="js/materialize.min.js"></script>
+  <script>
+    // const path = require('path');
+    // const os = require('os');
+    // const {ipcRenderer} = require('electron');
+
+    // const form = document.getElementById('image-form');
+    // const slider = document.getElementById('slider');
+    // const img = document.getElementById('img');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Date Picker.
+      const datePicker = document.getElementById('date');
+      var today = new Date();
+      var date = (("0" + today.getDate()).slice(-2)) + '-' + (("0" + (today.getMonth() + 1)).slice(-2)) + '-' + today.getFullYear();
+      datePicker.setAttribute('value', date)
+      var elems = document.querySelectorAll('.datepicker');
+      var options = {
+        format: 'mm-dd-yyyy',
+        defaultDate: today,
+        setDefaultDate: true
+      }
+      var instances = M.Datepicker.init(elems, options);
+
+      // Select.
+      var selectElems = document.querySelectorAll('select');
+      var selectInstances = M.FormSelect.init(selectElems);
+    });
+
+
+    // document.getElementById('output-path').innerText = path.join(os.homedir(), 'imageshrink');
+
+    // // onSubmit.
+    // form.addEventListener('submit', e => {
+    //   e.preventDefault();
+    //   const imgPath = img.files[0].path;
+    //   const quality = slider.value;
+      
+    //   ipcRenderer.send('image:minimizer', {
+    //     imgPath,
+    //     quality
+    //   })
+    // });
+
+    // // Image done.
+    // ipcRenderer.on('image:done', () =>  {
+    //   M.toast({
+    //     html: `Image resized to ${slider.value}% quality`
+    //   })
+    // })
+  </script>
+</body>
+</html>
