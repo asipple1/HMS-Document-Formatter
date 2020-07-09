@@ -11,14 +11,14 @@
 </head>
 <body>
   <div class="container center-align">
-    <h3><i class="fas fa-file-alt"></i> HMS Document Formatter</h3>
-    <p>Choose a file or files to rename</p>
-    <form action="" id="image-form">
+    <h4><i class="far fa-edit"></i> HMS Document Formatter</h4>
+    <p>Choose a file to rename</p>
+    <form action="" id="hms_form">
       <div class="row">
         <div class="file-field input-field col s12">
           <div class="btn">
             <span>File</span>
-            <input type="file">
+            <input type="file" id="file">
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Upload File To Rename">
@@ -52,105 +52,23 @@
         </div>
 
         <div class="input-field col s12">
-          <input id="treatment-date" type="date" class="validate datepicker" required value="1987-03-07">
-          <label class="active" for="treatment-date" class="active">Treatment Date</label>
+          <input id="treatment_date" type="date" class="validate datepicker" required value="1987-03-07">
+          <label class="active" for="treatment_date" class="active">Treatment Date</label>
         </div>
 
-        <div class="input-field col s12">
+        <div class="input-field col s12 white">
           <input id="provider_initals" type="text">
           <label for="provider_initals">Provider Initals</label>
         </div>
 
         <div class="input-field col s12">
-          <input type="submit" value="Rename" class="btn black">
+          <input type="submit" id="submit_button" value="Rename" class="btn">
         </div>
         </div>
     </form>
 
-    <!-- <div class="card output">
-      <div class="card-content">
-        Output Path: <span id="output-path"></span>
-      </div>
-    </div> -->
   </div>
   <script src="js/materialize.min.js"></script>
-  <script>
-    // const path = require('path');
-    // const os = require('os');
-    // const {ipcRenderer} = require('electron');
-
-    // const form = document.getElementById('image-form');
-    // const slider = document.getElementById('slider');
-    // const img = document.getElementById('img');
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-      // // Date Of Birth.
-      // const dateOfBirth = document.getElementById('dob');
-      // const dateOfBirthInstance = M.Datepicker.init(dateOfBirth, {format: 'mm-dd-yyyy', showClearBtn: true});
-
-
-
-      // Treatment Date Picker.
-      const treatmentDate = document.getElementById('treatment-date');
-      const today = new Date();
-      treatmentDate.value = today.getFullYear().toString() + '-' + (today.getMonth() + 1).toString().padStart(2, 0) +
-        '-' + today.getDate().toString().padStart(2, 0);
-
-      // Select.
-      var selectElems = document.querySelectorAll('select');
-      var selectInstances = M.FormSelect.init(selectElems);
-
-      // Autocomplete Treatments.
-      const autocompleteTreatments = document.getElementById('treatments');
-      const autocompleteTreatmentOptions = {
-        data: {
-          "Coolsculpting": null,
-          "Emsculpt": null,
-          "T0X": null,
-          "Filler": null,
-          "AFT": null,
-          "LHR": null
-        }
-      }
-      const autocompleteTreatmentInstances = M.Autocomplete.init(autocompleteTreatments, autocompleteTreatmentOptions);
-
-      // Autocomplete Body.
-      const autocompleteBody = document.getElementById('body');
-      const autocompleteBodyOptions = {
-        data: {
-          "Abdominal": null,
-          "Anus": null,
-          "Face": null,
-          "Brazilian": null,
-          "Underarm": null,
-          "Back": null
-        }
-      }
-      const autocompleteBodyInstances = M.Autocomplete.init(autocompleteBody, autocompleteBodyOptions);
-    });
-
-
-    // document.getElementById('output-path').innerText = path.join(os.homedir(), 'imageshrink');
-
-    // // onSubmit.
-    // form.addEventListener('submit', e => {
-    //   e.preventDefault();
-    //   const imgPath = img.files[0].path;
-    //   const quality = slider.value;
-      
-    //   ipcRenderer.send('image:minimizer', {
-    //     imgPath,
-    //     quality
-    //   })
-    // });
-
-    // // Image done.
-    // ipcRenderer.on('image:done', () =>  {
-    //   M.toast({
-    //     html: `Image resized to ${slider.value}% quality`
-    //   })
-    // })
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 .container {
 	max-width: 650px;
-	margin-top: 70px;
 	padding: 0 20px;
 }
 
@@ -18,4 +17,14 @@
 
 #output-path {
 	font-weight: bold;
+}
+
+#submit_button {
+	background-color: #424242;
+	transition: 0.4s;
+}
+
+#submit_button:hover,
+#submit_button:active {
+	background-color: #000000;
 }
