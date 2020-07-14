@@ -4,10 +4,10 @@ const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const slash = require('slash');
 
 // Set env
-process.env.NODE_ENV = 'production'
+process.env.NODE_ENV = 'production';
 
-const isDev = process.env.NODE_ENV !== 'production' ? true : false
-const isMac = process.platform === 'darwin' ? true : false
+const isDev = process.env.NODE_ENV !== 'production' ? true : false;
+const isMac = process.platform === 'darwin' ? true : false;
 
 let mainWindow;
 let aboutWindow;
@@ -65,14 +65,14 @@ const menu = [
           submenu: [
             {
               label: 'About',
-              click: createAboutWindow,
-            },
-          ],
-        },
+              click: createAboutWindow
+            }
+          ]
+        }
       ]
     : []),
   {
-    role: 'fileMenu',
+    role: 'fileMenu'
   },
   ...(!isMac
     ? [
@@ -81,26 +81,21 @@ const menu = [
           submenu: [
             {
               label: 'About',
-              click: createAboutWindow,
-            },
-          ],
-        },
+              click: createAboutWindow
+            }
+          ]
+        }
       ]
     : []),
   ...(isDev
     ? [
         {
           label: 'Developer',
-          submenu: [
-            { role: 'reload' },
-            { role: 'forcereload' },
-            { type: 'separator' },
-            { role: 'toggledevtools' },
-          ],
-        },
+          submenu: [ { role: 'reload' }, { role: 'forcereload' }, { type: 'separator' }, { role: 'toggledevtools' } ]
+        }
       ]
-    : []),
-]
+    : [])
+];
 
 // Catch form submit
 ipcMain.on('file:rename', (e, options) => {
