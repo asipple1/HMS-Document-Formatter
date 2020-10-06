@@ -21,7 +21,7 @@
   "author": "Andy Sipple",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^9.0.5",
+    "electron": "^9.3.1",
     "electron-packager": "^15.0.0",
     "nodemon": "^2.0.4"
   },
